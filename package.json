@@ -2,7 +2,7 @@
   "name": "@ofirgeller/redux-reducer-builder",
   "version": "1.0.0",
   "description": "Util library to reduce boilerplate and common mistakes when working with redux ",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "prepublish": "yarn tsc && yarn test",
     "test": "jest --config jest.config.js",
