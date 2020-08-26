@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+*.log
+
+build/
+dist/
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/lz-npm-packages/v16/.suo

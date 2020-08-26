@@ -1,0 +1,37 @@
+{
+  "name": "redux-reducer-builder",
+  "version": "1.0.0",
+  "description": "Util library to reduce boilerplate and common mistakes when working with redux ",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "yarn tsc && yarn test",
+    "test": "jest --config jest.config.js",
+    "test:watch": "jest --config jest.config.js --watch"
+  },
+  "devDependencies": {
+    "@types/history": "4.7.3",
+    "@types/jest": "24.0.15",
+    "@types/lodash": "4.14.91",
+    "@types/lodash-es": "4.17.3",
+    "deep-freeze": "0.0.1",
+    "jest": "24.9.0",
+    "ts-jest": "24.0.2",
+    "typescript": "3.7.4",
+    "url": "0.11.0"
+  },
+  "dependencies": {
+    "history": "4.10.1",
+    "lodash-es": "4.17.15",
+    "redux": "4.0.0",
+    "ts-essentials": "3.0.2",
+    "tslib": "1.10.0"
+  },
+  "keywords": [
+    "redux",
+    "define",
+    "actions",
+    "builder"
+  ],
+  "author": "Ofir Geller",
+  "license": "MIT"
+}
