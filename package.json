@@ -6,7 +6,8 @@
   "scripts": {
     "prepublish": "yarn tsc && yarn test",
     "test": "jest --config jest.config.js",
-    "test:watch": "jest --config jest.config.js --watch"
+    "test:watch": "jest --config jest.config.js --watch",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
