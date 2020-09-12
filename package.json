@@ -4,6 +4,10 @@
   "description": "Util library to reduce boilerplate and common mistakes when working with redux ",
   "sideEffects": false,
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ofirgeller/redux-reduxer-builder.git"
+  },
   "scripts": {
     "prepublish": "yarn tsc && yarn test",
     "test": "jest --config jest.config.js",
