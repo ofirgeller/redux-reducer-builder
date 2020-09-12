@@ -3,7 +3,6 @@
         "baseUrl": "src/", // enables relative imports to root
         "outDir": "dist/", // target for compiled files
         "allowSyntheticDefaultImports": true, // no errors on commonjs default import
-        // "allowJs": true,
         "checkJs": false, // typecheck js files 
         "skipLibCheck": true,
         "declaration": true, // emit declaration files so 
@@ -35,8 +34,7 @@
         "sourceMap": true
     },
     "include": [
-        "src/index.ts",
-        "__tests__/**/*.ts"
+        "src/index.ts"
     ],
     "exclude": [
         "node_modules"
