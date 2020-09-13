@@ -1,15 +1,10 @@
-# Redux-Reducer-Builder 
-Util class to make creating reducers less verbose and error prone, with typescript support. 
+import { ReducerBuilder, opState, OpState } from '../src/index';
 
-## Install
-yarn add @ofirgller/redux-reducer-builder
-
-## Usage
-
-This library support typescript but can also be used by Javascript project, simply avoid adding the type annotations.
-
-``` typescript
-import { ReducerBuilder, opState, OpState } from '@ofirgeller/redux-reducer-builder';
+describe('readme specs', () => {
+    it('explains the usage of the library', () => {
+        // Real tests are in the other files, the file is used to make sure the readme is up to date with the code.
+    });
+})
 
 type Todo = {
     id: number;
@@ -55,8 +50,8 @@ export const removeTodo = builder.withActionOfT<Todo>('REMOVE', (state, action) 
  * so assuming you want to handle an action with the type "AFTER_NAVIGATION_ACTION" you can do this:
 */
 
-/// In your code you will import the action name from a shared file, here we pretend it is available in the current scope.
-declare const AFTER_NAVIGATION_ACTION = "@ROUTER_LIBRARY/AFTER_NAVIGATION";
+/// In your code you will import the action name from a shared file/some library, here we define it ourselves.
+const AFTER_NAVIGATION_ACTION = "@ROUTER_LIBRARY/AFTER_NAVIGATION";
 
 /**This time we don't export the action creator, since we do not intend on dispatching ourselves */
 builder.withAction(AFTER_NAVIGATION_ACTION, (state, _action) => {
@@ -87,11 +82,4 @@ export const altFetchTodos = builder.withFetch<Todo[]>('items', (state, action) 
 
 /// you can use lower level functions that the reducer builder uses like "createAction" and "createActionWithNoPayload" if you need to. 
 
-```
 
-## Contributing
-PRs accepted, could probably improve type inference if anyone wants to have a go at it. 
-
-
-License
-MIT © Ofir Geller

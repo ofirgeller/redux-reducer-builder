@@ -7,7 +7,7 @@ import { createReducer } from './createReducer';
 export const splitOnWords = (text: string) => text.match(/([A-Za-z][a-z]*)|([0-9]+)/g) || [];
 
 export const camelToUnderscore = (text: string) => {
-  return splitOnWords(text).join('_').toUpperCase();
+    return splitOnWords(text).join('_').toUpperCase();
 };
 
 export interface OpState<TParams = undefined> {
@@ -164,7 +164,7 @@ export class ReducerBuilder<TReducerState extends {} = never> {
         return opAction as OpActions<TParam, TError>;
     }
 
-    withActionOfT<T>(action: (s: TReducerState, a: IAction<T>) => TReducerState, actionName: string, sharedActionType = false) {
+    withActionOfT<T>(actionName: string, action: (s: TReducerState, a: IAction<T>) => TReducerState, sharedActionType = false) {
         if (!actionName.startsWith(this._reducerName) && !sharedActionType) {
             actionName = this._reducerName + '__' + actionName;
         }
@@ -174,7 +174,7 @@ export class ReducerBuilder<TReducerState extends {} = never> {
         return actionHandlerAndCreator;
     }
 
-    withAction(action: (s: TReducerState, a: IActionNoPayload) => TReducerState, actionName: string, sharedActionType = false) {
+    withAction(actionName: string, action: (s: TReducerState, a: IActionNoPayload) => TReducerState, sharedActionType = false) {
         if (!actionName.startsWith(this._reducerName) && !sharedActionType) {
             actionName = this._reducerName + '__' + actionName;
         }

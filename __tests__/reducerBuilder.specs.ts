@@ -1,10 +1,15 @@
 import { ReducerBuilder, OpState, opState, FetchState, fetchState } from '../src/index';
 
-type ReducerState = { name?: string, age?: number, sendGreatingOp: OpState, fetchAge: FetchState<number, string> };
+type ReducerState = {
+    name?: string,
+    age?: number,
+    sendGreatingOp: OpState,
+    fetchAge: FetchState<number, string>
+};
+
 const initState: ReducerState = { name: undefined, age: undefined, sendGreatingOp: opState, fetchAge: fetchState };
 let currState: ReducerState = null as any;
 let builder: ReducerBuilder<ReducerState> = null as any;
-
 
 describe('ReducerBuilder', () => {
 
@@ -25,7 +30,7 @@ describe('ReducerBuilder', () => {
 
     it('withAction adds the given action to the reducer and returns the action creator', () => {
 
-        const scream = builder.withAction((s, a) => { return { ...s, name: s.name + '!' }; }, 'scream');
+        const scream = builder.withAction('scream', (s, a) => { return { ...s, name: s.name + '!' }; });
         const reducer = builder.build();
 
         currState = reducer(currState, scream());
@@ -37,7 +42,7 @@ describe('ReducerBuilder', () => {
 
     it('withActionOfT adds the given action to the reducer and returns the action creator', () => {
 
-        const changeGreating = builder.withActionOfT<string>((s, a) => { return { ...s, name: a.payload }; }, 'changeGreating');
+        const changeGreating = builder.withActionOfT<string>('changeGreating', (s, a) => { return { ...s, name: a.payload }; });
         const reducer = builder.build();
 
         currState = reducer(currState, changeGreating('howdy'));
