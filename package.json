@@ -1,6 +1,6 @@
 {
   "name": "@ofirgeller/redux-reducer-builder",
-  "version": "2.0.0",
+  "version": "3.0.0-beta-3",
   "description": "Util library to reduce boilerplate and common mistakes when working with redux ",
   "sideEffects": false,
   "main": "dist/index.js",

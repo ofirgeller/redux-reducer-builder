@@ -13,7 +13,7 @@ export function createActionWithNoPayload<TState>(work: (state: TState, action: 
 /** returns a function that is both an action creator and an action handler */
 export function createAction<TState, TPayload>(work: (state: TState, action: IAction<TPayload>) => TState, type: string)
     : ActionCreator<TPayload>
-    & Reducer<TState,IAction<TPayload>>
+    & Reducer<TState,AnyAction>
     & { type: string } {
 
     const action = (stateOrPayload, action?) => {
