@@ -1,4 +1,3 @@
-import { AnyAction } from 'redux';
 import { IAction, IActionNoPayload } from './IAction';
 import { createAction, createActionWithNoPayload } from './createAction';
 import { createReducer } from './createReducer';
@@ -63,7 +62,10 @@ export class ReducerBuilder<TReducerState extends {} = never> {
 
     _initState: any;
     _reducerName: string;
-    _reducerActions: any[] = [];
+    
+    /** typing weak point, typed as any since the real type is: action creator, reducer, object with a type property or a collection of 
+     * such objects which is very hard to type */
+    _reducerActions: any = [];
 
     constructor(reducerName: string, initState: Partial<TReducerState> = {}) {
         this._reducerName = camelToUnderscore(reducerName);
@@ -192,7 +194,7 @@ export class ReducerBuilder<TReducerState extends {} = never> {
     }
 
     build() {
-        return createReducer(this._initState, this._reducerActions) as (state: TReducerState, action: AnyAction) => TReducerState;
+        return createReducer<TReducerState>(this._initState, this._reducerActions)
     }
 
 }

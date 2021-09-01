@@ -63,7 +63,6 @@ enum ActionType {
 const clubVisitHandlerAndActionCreator = createAction(_clubVisitHandler, ActionType.ClubOpened);
 const emptyClubActionHandler = createActionWithNoPayload(_emptyClubActionHandler, ActionType.ClubClosed);
 
-
 describe('createAction', () => {
 
     it('createAction returns a function that creates the action if it is called with the payload', () => {

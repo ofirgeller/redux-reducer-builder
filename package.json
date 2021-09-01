@@ -22,7 +22,7 @@
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "redux": "4.0.0",
+    "redux": "4.1.1",
     "tslib": "1.10.0"
   },
   "keywords": [

@@ -1,14 +1,20 @@
+import { AnyAction, Reducer } from 'redux';
+import { IActionNoPayload, IAction, ActionCreator, ActionCreatorNoPayload } from './IAction';
 
-import { IAction, IActionNoPayload } from './IAction';
+export const isAReduxAction = (action): action is IAction<any> => (typeof action === 'object' && typeof action.type === 'string');
 
-export const isAReduxAction = (action) => (typeof action === 'object' && typeof action.type === 'string');
-
-export function createActionWithNoPayload<TState>(work: (state: TState, action: IActionNoPayload) => TState, type: string) {
-    return createAction(work, type) as any as () => IActionNoPayload;
+export function createActionWithNoPayload<TState>(work: (state: TState, action: IActionNoPayload) => TState, type: string) 
+: ActionCreatorNoPayload
+& Reducer<TState,IActionNoPayload>
+& { type: string } {
+    return createAction(work, type) as any;
 }
 
+/** returns a function that is both an action creator and an action handler */
 export function createAction<TState, TPayload>(work: (state: TState, action: IAction<TPayload>) => TState, type: string)
-    : ((payload: TPayload) => IAction<TPayload>) & { type: string } {
+    : ActionCreator<TPayload>
+    & Reducer<TState,IAction<TPayload>>
+    & { type: string } {
 
     const action = (stateOrPayload, action?) => {
 
