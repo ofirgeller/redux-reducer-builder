@@ -89,10 +89,17 @@ describe('createReducer', () => {
 
     it('createReducer takes action handlers and returns a reducer routing actions based on the action name', () => {
 
-        const reducer = createReducer(
+        let reducer = createReducer(
             initState,
             clubVisitHandlerAndActionCreator,
             emptyClubActionHandler);
+
+        //** specifying the state type is not required but does produce a matching type to the one TS infers */
+        reducer = createReducer<ClubState>(
+            initState,
+            clubVisitHandlerAndActionCreator,
+            emptyClubActionHandler);
+
 
         const action = clubVisitHandlerAndActionCreator(payload);
 
