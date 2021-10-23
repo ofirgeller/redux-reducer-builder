@@ -93,5 +93,16 @@ export const altFetchTodos = builder.withFetch<Todo[]>('items', (state, action) 
 PRs accepted, could probably improve type inference if anyone wants to have a go at it. 
 
 
+### Publishing
+
+1. Make sure that all the changes relevant to this release are committed.
+2. Run `yarn test` to confirm that the code doesn't break any tests.
+3. make sure you are logged in to npm by running 'npm login'
+4. run 'yarn publish'. you will be asked to enter a version number (even if the current commit is a version bump).
+5. If you want to publish a pre-release version pass '--canary' 
+6. if you get an error about the package not being found and it looks like the publish command failed, check npm (the site or registry), it probably did publish.
+
+
+
 License
 MIT © Ofir Geller
